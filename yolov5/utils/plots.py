@@ -19,9 +19,9 @@ import torch
 from PIL import Image, ImageDraw, ImageFont
 
 from utils.general import (CONFIG_DIR, FONT, LOGGER, Timeout, check_font, check_requirements, clip_coords,
-                           increment_path, is_ascii, threaded, try_except, xywh2xyxy, xyxy2xywh)
+                           increment_path, is_ascii, try_except, xywh2xyxy, xyxy2xywh)
 from utils.metrics import fitness
-
+from utils import TryExcept, threaded
 # Settings
 RANK = int(os.getenv('RANK', -1))
 matplotlib.rc('font', **{'size': 11})
@@ -338,7 +338,7 @@ def plot_val_study(file='', dir='', x=None):  # from utils.plots import *; plot_
     plt.savefig(f, dpi=300)
 
 
-@try_except  # known issue https://github.com/ultralytics/yolov5/issues/5395
+@TryExcept()  # known issue https://github.com/ultralytics/yolov5/issues/5395
 @Timeout(30)  # known issue https://github.com/ultralytics/yolov5/issues/5611
 def plot_labels(labels, names=(), save_dir=Path('')):
     # plot dataset labels
