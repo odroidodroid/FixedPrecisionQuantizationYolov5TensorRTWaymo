@@ -473,9 +473,9 @@ def parse_opt():
     parser.add_argument('--exist-ok', action='store_true', help='existing project/name ok, do not increment')
     parser.add_argument('--dnn', action='store_true', help='use OpenCV DNN for ONNX inference')
     parser.add_argument('--save_dir', default='/home/youngjin/projects/runs/onnx_trt_detect/')
-    parser.add_argument('-d', '--calib_dataset_path', default='/home/youngjin/datasets/coco/train/images',
+    parser.add_argument('-d', '--calib_dataset_path', default='/home/sony/datasets/coco/train/images',
         help='path to the calibration dataset')
-    parser.add_argument('-c', '--calib_cache_path', default='/home/youngjin/projects/runs/calib_cache/coco_calib_cache.cache',
+    parser.add_argument('-c', '--calib_cache_path', default='/home/sony/projects/runs/calib_cache/coco_calib_cache.cache',
         help='path to the calibration dataset')
     parser.add_argument('--half', default=False)
     parser.add_argument('--int8', default=False)
